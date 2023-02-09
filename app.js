@@ -87,7 +87,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // })
 
 const corsOptions = {
-    origin: ["http://localhost:8080", "http://192.168.100.9:8080","http://localhost:8080/", "http://192.168.100.9:8080/", "http://streamly-client.netlify.app"],
+    origin: ["http://localhost:8080", "http://192.168.100.9:8080","http://localhost:8080/", "http://192.168.100.9:8080/", "https://streamly-web.netlify.app/"],
     optionsSuccessStatus: 200,
     credentials: true
     
