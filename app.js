@@ -86,6 +86,24 @@ app.use(express.static(path.join(__dirname, 'public')))
 //   }, 1000)
 // })
 
+const corsOptions = {
+    origin: ["http://localhost:8080", "http://192.168.100.9:8080","http://localhost:8080/", "http://192.168.100.9:8080/", "http://streamly-client.netlify.app"],
+    optionsSuccessStatus: 200,
+    credentials: true
+    
+}
+
+app.use(cors(corsOptions));
+
+
+app.use((req,res,next)=>{
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+})
+
+
 const versionOne = (routeName) => `/api/v1/${routeName}`
 
 app.use(versionOne('auth'), authRoutes)
