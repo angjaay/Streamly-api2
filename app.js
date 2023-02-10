@@ -127,6 +127,8 @@ const server = app.listen(PORT, () => {
 	)
 })
 
+server.use(restify.CORS());
+
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err, promise) => {
 	console.log(`Error: ${err.message}`.red)
